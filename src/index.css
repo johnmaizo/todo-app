@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.125rem;
+  }
+}
+
+@layer components {
+  .checked_BG {
+    background: linear-gradient(
+      to right,
+      hsl(192, 100%, 67%),
+      hsl(280, 87%, 65%)
+    );
+  }
+
+  .box {
+    --size: 1px;
+    border-bottom: solid var(--size) transparent;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .box_dark {
+    --size: 1px;
+    border-bottom: solid var(--size) #323449;
+  }
+
+  .box_light {
+    --size: 1px;
+    border-bottom: solid var(--size) #eae9ee;
+  }
+
+  .box_curve_top {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .box_curve_bottom {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .full_bleed {
+    box-shadow: 0 0 0 100vmax transparent;
+  }
+
+  .full_bleed_dark {
+    box-shadow: 0 0 0 100vmax #181824;
+    clip-path: inset(-100vmax 0);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .full_bleed_light {
+    box-shadow: 0 0 0 100vmax #f6f6f8;
+    clip-path: inset(-100vmax 0);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ! BG Image for small device */
+  .background_image_small::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 16em;
+    top: 0;
+    z-index: -1;
+  }
+
+  .background_image_dark::before {
+    background: url("./assets/bg-mobile-dark.jpg") no-repeat center/cover;
+  }
+
+  .background_image_light::before {
+    background: url("./assets/bg-mobile-light.jpg") no-repeat center/cover;
+  }
+
+  /* ! BG Image for desktop device */
+  .background_image_large::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 17em;
+    top: 0;
+    z-index: -1;
+  }
+
+  .background_image_dark_large::before {
+    background: url("./assets/bg-desktop-dark.jpg") no-repeat center/cover;
+  }
+
+  .background_image_light_large::before {
+    background: url("./assets/bg-desktop-light.jpg") no-repeat center/cover;
+  }
+}
